@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>StarDrop - Cart</title>
+  <link rel="stylesheet" href="../static/style.css">
+
+</head>
+<body>
+
+    <header class="banner"> <!-- тоже самое что и на главной страничке-->
+        <div class="banner-left">
+          <img src="../images/Logo(SD).png" class="logo-corner" />
+          <h1 class="shop-name">StarDrop</h1>
+        </div>
+        <div class="banner-right">
+          <a href="cart.html"><img src="../images/cart.png" alt="Cart" class="icon" /></a>
+          <a href="profile.html"><img src="../images/profile.png" alt="Profile" class="icon" /></a>
+        </div>
+      </header>
+      
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="family-games.html">Семейные игры</a></li>
+          <li><a href="strategy-games.html">Стратегии и евроигры</a></li>
+          <li><a href="rpg.html">Ролевые настольные игры</a></li>
+          <li><a href="accessories.html">Аксессуары</a></li>
+        </ul>
+      </nav>
+
+<h1>Ваша корзина</h1>
+
+<div id="cart-container"></div>
+
+<div id="cart-total">
+    <h3>Итого:  ₽<span id="total-price">0.00</span></h3>
+    <button id="checkout-button">Перейти к оформлению</button>
+  </div>
+  
+
+<script>
+
+
+function changeQuantity(index, change) { //тут можем менять количество товара который покупаем-->
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart[index].quantity += change;
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    loadCart();
+}
+
+function removeItem(index) { //тут можем удалить товар совсем
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    loadCart();
+}
+
+window.onload = loadCart;
+
+function loadCart() { //тут показываем всю информацию о товаре
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartContainer = document.getElementById('cart-container');
+    cartContainer.innerHTML = '';
+
+    cart.forEach((item, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = "cart-item";
+        itemDiv.innerHTML = `
+            <img src="../images/${item.image}" alt="${item.name}" class="cart-image">
+            <div class="cart-info">
+                <h3>${item.name}</h3>
+                <p>${item.description}</p>
+                <p>Price: $${item.price}</p>
+            </div>
+            <div class="cart-actions">
+                <p>Quantity: <button onclick="changeQuantity(${index}, -1)">-</button> ${item.quantity} <button onclick="changeQuantity(${index}, 1)">+</button></p>
+                <button class="delete-button" onclick="removeItem(${index})">Удалить</button>
+
+            </div>
+        `;
+        cartContainer.appendChild(itemDiv);
+    });
+
+    //это окошко для полной суммы
+    let total = 0;
+    cart.forEach(item => {
+    total += item.price * item.quantity;
+    });
+    document.getElementById('total-price').textContent = total.toFixed(2);
+
+}
+
+</script>
+
+</body>
+</html>

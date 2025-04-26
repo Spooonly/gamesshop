@@ -1,0 +1,423 @@
+body { /* основы всего сайта, шрифт, цвет*/
+  font-family: 'Rubik', sans-serif;
+  background: #fdfbef;
+  overflow-x: hidden;
+  color: #687F53;
+  margin: 0;
+  padding: 0;
+}
+
+h1{ /*это чтобы весь текст по центру был*/
+  text-align: center;
+}
+
+
+/*тут описание баннера*/
+header {
+  background-color: #FEF9DC;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+/*левый угол где находится логотип и название*/
+.banner-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/*контейнер для логотипа*/
+.logo-corner {
+  height: 60px;
+  width: 60px;
+}
+
+/*контейнер для названияя*/
+.shop-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/*правый угол для иконок профиля и корзины*/
+.banner-right {
+  display: flex;
+  gap: 20px;
+}
+
+/*иконки*/
+.icon {
+  object-fit: none;
+  transition: transform 0.3s ease;
+}
+
+/*иконки когда мышка над ними*/
+.icon:hover {
+  transform: scale(1.1);
+}
+
+/*навишация между страничек*/
+.navbar {
+  background-color: #687F53;
+  padding: 10px 0;
+}
+
+/*список страничек */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+/*место между страничками*/
+.navbar li {
+  margin: 0 20px;
+}
+
+/*гиперсылка страниц*/
+.navbar a {
+  color: #FEF9DC;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+/*гиперсылка когда курсор на ней*/
+.navbar a:hover {
+  color: #FEF9DC;
+  background-color: #5b7047;
+}
+
+/*ивенты и скидки*/
+.image-strip {
+  display: flex;
+  overflow-x: auto;
+  width: 100%;
+  padding: 20px;
+  gap: 20px;
+  background-color: #fff8e6;
+}
+/*это картинки о ивентах*/
+.image-strip img {
+  flex: 0 0 auto;
+  width: 400px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*спец предложения*/
+.special-offer {
+  padding: 30px;
+  background-color: #fff8e6;
+  text-align: center;
+}
+/*текст спец предложения*/
+.special-offer h2 {
+  font-size: 2rem;
+  color: #465835;
+  margin: 0;
+}
+
+/*карточки товаров контейнеры*/
+.product-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+/*карточки товара контейнер*/
+.product-card {
+  background-color: #FEF9DC;
+  border-radius: 10px;
+  width: 250px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+/*карточки товара когда курсор над ними*/
+.product-card:hover {
+  transform: translateY(-5px);
+}
+/*контейнер картинки товара*/
+.product-card img {
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+/*текс товара*/
+.product-card h3 {
+  font-size: 1.3rem;
+  margin: 15px 0 10px;
+  color: #687F53;
+}
+/*рписание и цена*/
+.product-card p {
+  font-size: 1.1rem;
+  margin: 5px 0 15px;
+  color: #687F53;
+}
+/*кнопка купить*/
+.product-card button {
+  background-color: #687F53;
+  color: #fff8e6;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+/*кнопка когда нажимаем*/
+.product-card button:hover {
+  background-color: #465835;
+}
+/*анимация картинки*/
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+/*картинка при нажатии*/
+.product-card img:hover {
+  transform: scale(1.05);
+}
+
+/* это топ товары мне было лень менять название класса */
+.new-arrivals {
+  padding: 40px;
+  text-align: center;
+  background-color: #fff8e6;
+}
+/*текст топ товаров*/
+.new-arrivals h2 {
+  font-size: 2rem;
+  color: #465835;
+}
+
+/*футер*/
+.footer {
+  background-color: #687F53;
+  color: #fff8e6;
+  text-align: center;
+  padding: 20px;
+  font-size: 1rem;
+  margin-top: 50px;
+}
+/*текст футера*/
+.footer a {
+  color: #FEF9DC;
+  text-decoration: underline;
+}
+/*текст при нажатие*/
+.footer a:hover {
+  color: white;
+}
+
+/*движение картинок ивентов по странице*/
+.image-strip {
+  display: flex;
+  width: 200%;
+  animation: scroll 20s linear infinite;
+  overflow: hidden;
+  gap: 20px;
+  padding: 20px;
+  background-color: #fff8e6;
+}
+/*скорость движения*/
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%); 
+  }
+}
+
+/*контейнер картинок*/
+.image-strip img {
+  width: 400px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*КОРЗИНА*/
+
+/*страничка корзины*/
+.cart-page {
+  padding: 40px;
+}
+/*текст*/
+.cart-page h2 {
+  font-size: 2rem;
+  color: #465835;
+  margin-bottom: 30px;
+  text-align: center;
+}
+/*контейнеры*/
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/*контенер для товара*/
+.cart-item {
+  background-color: #FEF9DC;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+/*картинка товара*/
+.cart-item img {
+  width: 100px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+/*детали*/
+.item-details h3, .item-details p {
+  margin: 5px 0;
+}
+/*товар*/
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  padding: 20px;
+}
+/*контейнер для картинки тоовара*/
+.cart-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+/*информация о товаре*/
+.cart-info {
+  flex-grow: 1;
+  padding: 0 20px;
+}
+/*кнопки удалить и количество*/
+.cart-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+/*это чтобы все по середине было*/
+#cart-container {
+  max-width: 800px;
+  margin: 30px auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  text-align: center;
+}
+/* итого по центру*/
+#cart-total {
+  text-align: center;
+  margin-top: 30px;
+}
+/*кнопка оплаты*/
+#checkout-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+/*курсор на кнопке*/
+#checkout-button:hover {
+  background-color: #45a049;
+}
+/*кнопка удалить*/
+.delete-button {
+  background-color: #5b7047; 
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+}
+/*курсор на кнопке*/
+.delete-button:hover {
+  background-color: #465835; 
+}
+
+
+
+/* СТРАНИЦА ТОВАРА*/
+
+/*контейнер товара*/
+.product-detail-container {
+  max-width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+/*контейнер для картинки*/
+.product-detail-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+/*кнопки*/
+.product-actions {
+  margin-top: 20px;
+}
+/*кнопки*/
+.product-actions input {
+  width: 50px;
+  padding: 5px;
+  margin-right: 10px;
+}
+/*это все чтобы кнопки красивые были*/
+.product-actions button {
+  padding: 8px 15px;
+  background-color: #687F53;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/*курсок на кнопке*/
+.product-actions button:hover {
+  background-color: #556943;
+}
+
+
+
+/*ПРОФИЛЬ*/
+
+/*контенер для профиля*/
+.profile-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  text-align: center;
+}
+/*иконка профиля*/
+.profile-pic {
+  object-fit: cover;
+  margin-bottom: 20px;
+}

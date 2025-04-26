@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Details</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="banner"> <!-- тоже самое тчо и на главной-->
+        <div class="banner-left">
+          <img src="../images/Logo(SD).png" class="logo-corner" />
+          <h1 class="shop-name">StarDrop</h1>
+        </div>
+        <div class="banner-right">
+          <a href="cart.html"><img src="../images/cart.png" alt="Cart" class="icon" /></a>
+          <a href="profile.html"><img src="../images/profile.png" alt="Profile" class="icon" /></a>
+        </div>
+      </header>
+      
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="family-games.html">Семейные игры</a></li>
+          <li><a href="strategy-games.html">Стратегии и евроигры</a></li>
+          <li><a href="rpg.html">Ролевые настольные игры</a></li>
+          <li><a href="accessories.html">Аксессуары</a></li>
+        </ul>
+      </nav>
+
+<div class="product-detail-container">
+  <img id="product-image" src="" alt="Product Image">
+  <h2 id="product-name"></h2>
+  <p id="product-price"></p>
+  <p id="product-description"></p>
+  
+  <div class="product-actions">
+    <input type="number" id="quantity" value="1" min="1">
+    <button onclick="addToCartFromPage()">Add to Cart</button>
+  </div>
+</div>
+
+<footer class="footer">
+    <p>© 2025 StarDrop | <a href="#">Contact Us</a> | <a href="#">About</a></p>
+</footer>
+
+
+<script>
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+function loadProduct() {
+  document.getElementById('product-name').textContent = getQueryParam('name');
+  document.getElementById('product-price').textContent = "₽" + getQueryParam('price');
+  document.getElementById('product-image').src = "../images/" + getQueryParam('image');
+  document.getElementById('product-description').textContent = getQueryParam('description');
+}
+
+function addToCartFromPage() {
+  const name = getQueryParam('name');
+  const price = parseFloat(getQueryParam('price'));
+  const image = getQueryParam('image');
+  const description = getQueryParam('description'); 
+  const quantity = parseInt(document.getElementById('quantity').value);
+
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const existingProduct = cart.find(item => item.name === name);
+
+  if (existingProduct) {
+      existingProduct.quantity += quantity;
+  } else {
+      cart.push({ name: name, price: price, quantity: quantity, image: image, description: description });
+  }
+  
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert("Added to cart!");
+}
+
+
+loadProduct();
+</script>
+
+</body>
+</html>
