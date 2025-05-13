@@ -10,12 +10,12 @@
 
     <header class="banner"> <!-- тоже самое что и на главной страничке-->
         <div class="banner-left">
-          <img src="../images/Logo(SD).png" class="logo-corner" />
+          <img src="../static/images/Logo(SD).png" class="logo-corner" />
           <h1 class="shop-name">StarDrop</h1>
         </div>
         <div class="banner-right">
-          <a href="cart.html"><img src="../images/cart.png" alt="Cart" class="icon" /></a>
-          <a href="profile.html"><img src="../images/profile.png" alt="Profile" class="icon" /></a>
+          <a href="cart.html"><img src="../static/images/cart.png" alt="Cart" class="icon" /></a>
+          <a href="profile.html"><img src="../static/images/profile.png" alt="Profile" class="icon" /></a>
         </div>
       </header>
       
@@ -70,7 +70,7 @@ function loadCart() { //тут показываем всю информацию 
         const itemDiv = document.createElement('div');
         itemDiv.className = "cart-item";
         itemDiv.innerHTML = `
-            <img src="../images/${item.image}" alt="${item.name}" class="cart-image">
+            <img src="../static/images/${item.image}" alt="${item.name}" class="cart-image">
             <div class="cart-info">
                 <h3>${item.name}</h3>
                 <p>${item.description}</p>

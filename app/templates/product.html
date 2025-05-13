@@ -31,7 +31,7 @@
 
 <div class="product-detail-container">
   <img id="product-image" src="" alt="Product Image">
-  <h2 id="product-name"></h2>
+  <h2 id="product-name">{{ data['name'] }}</h2>
   <p id="product-price"></p>
   <p id="product-description"></p>
   
@@ -45,43 +45,6 @@
     <p>© 2025 StarDrop | <a href="#">Contact Us</a> | <a href="#">About</a></p>
 </footer>
 
-
-<script>
-function getQueryParam(param) {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get(param);
-}
-
-function loadProduct() {
-  document.getElementById('product-name').textContent = getQueryParam('name');
-  document.getElementById('product-price').textContent = "₽" + getQueryParam('price');
-  document.getElementById('product-image').src = "../images/" + getQueryParam('image');
-  document.getElementById('product-description').textContent = getQueryParam('description');
-}
-
-function addToCartFromPage() {
-  const name = getQueryParam('name');
-  const price = parseFloat(getQueryParam('price'));
-  const image = getQueryParam('image');
-  const description = getQueryParam('description'); 
-  const quantity = parseInt(document.getElementById('quantity').value);
-
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const existingProduct = cart.find(item => item.name === name);
-
-  if (existingProduct) {
-      existingProduct.quantity += quantity;
-  } else {
-      cart.push({ name: name, price: price, quantity: quantity, image: image, description: description });
-  }
-  
-  localStorage.setItem('cart', JSON.stringify(cart));
-  alert("Added to cart!");
-}
-
-
-loadProduct();
-</script>
 
 </body>
 </html>
