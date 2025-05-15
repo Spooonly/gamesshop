@@ -1,0 +1,11 @@
+<h2>Регистрация</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+
+    {{ form.username.label }} {{ form.username() }}<br>
+    {{ form.mail.label }} {{ form.mail() }}<br>
+    {{ form.phone.label }} {{ form.phone() }}<br>
+    {{ form.password.label }} {{ form.password() }}<br>
+    {{ form.repeat_password.label }} {{ form.repeat_password() }}<br>
+    {{ form.create_acc() }}
+</form>

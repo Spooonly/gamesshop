@@ -12,5 +12,5 @@ class Basket(SqlAlchemyBase, UserMixin, SerializerMixin):
     all_price = sa.Column(sa.Integer, nullable=True)
     user_id = sa.Column(sa.Integer, sa.ForeignKey('users.id'))
 
-    user = orm.relationship('User')
+    user = orm.relationship('User', back_populates="basket")
     basket_details = orm.relationship('BasketDetails', back_populates='basket')

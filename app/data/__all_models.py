@@ -1,2 +1,2 @@
-from . import products
+from . import roles
 from . import users

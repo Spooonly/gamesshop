@@ -7,7 +7,7 @@ SqlAlchemyBase = orm.declarative_base()
 __factory = None
 
 
-def gloabal_init(db_file):
+def global_init(db_file):
     global __factory
 
     if __factory:
