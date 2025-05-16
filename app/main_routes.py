@@ -12,23 +12,22 @@ main = Blueprint('main', __name__, template_folder='templates')
 
 
 @main.route('/')
-def test():
+def index():
     return render_template('index.html')
 
 
 @main.route('/cart')
-def test2():
+def cart():
     return render_template('cart.html')
 
 
+@main.route('/profile_options')
+def profile():
+    return render_template('profile_options.html')
+
 @main.route('/profile')
-def test3():
+def profile_main():
     return render_template('profile.html')
-
-
-@main.route('/product')
-def test4():
-    return render_template('product.html', data=data)
 
 
 @main.route('/login', methods=['GET', 'POST'])
@@ -39,7 +38,7 @@ def login():
         user = session.query(User).filter(User.username == form.username.data).first()
         if user and check_password_hash(user.hashed_password, form.password.data):
             login_user(user, remember=form.remember_me.data)
-            return redirect(url_for('main.test'))
+            return redirect(url_for('main.profile_main'))
         else:
             return render_template('login.html', form=form, error="Неверные данные")
     return render_template('login.html', form=form)

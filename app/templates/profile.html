@@ -1,42 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>My Profile</title>
-  <link rel="stylesheet" href="../static/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <header class="banner">
-        <div class="banner-left">
-          <img src="../static/images/Logo(SD).png" class="logo-corner" />
-          <h1 class="shop-name">StarDrop</h1>
-        </div>
-        <div class="banner-right">
-          <a href="/cart"><img src="../static/images/cart.png" alt="Cart" class="icon" /></a>
-          <a href="/profile"><img src="../static/images/profile.png" alt="Profile" class="icon" /></a>
-        </div>
-      </header>
-      
-      <nav class="navbar">
-        <ul>
-          <li><a href="/">Главная</a></li>
-          <li><a href="family-games.html">Семейные игры</a></li>
-          <li><a href="strategy-games.html">Стратегии и евроигры</a></li>
-          <li><a href="rpg.html">Ролевые настольные игры</a></li>
-          <li><a href="accessories.html">Аксессуары</a></li>
-        </ul>
-      </nav>
-      
-
-<div class="profile-container"> <!-- тут просто пример профиля (тут пока ничего нет)-->
+<!-- profile.html (for logged-in users) -->
+{% extends "base.html" %}
+{% block title %}Your Profile{% endblock %}
+{% block content %}
+  <div class="profile-container"> <!-- тут просто пример профиля (тут пока ничего нет)-->
   <h1>Ваш профиль</h1>
   <img src="../static/images/profile.png" class="profile-pic" alt="Profile Picture">
-  <p><strong>Username:</strong> StarPlayer</p>
-  <p><strong>Email:</strong> starplayer@example.com</p>
-  <button>Изменить профиль</button>
+  <p>Email: {{ current_user.email }}</p>
+  <p>Phone: {{ current_user.phone }}</p>
 </div>
-
-</body>
-</html>
+{% endblock %}

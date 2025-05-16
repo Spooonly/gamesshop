@@ -8,36 +8,19 @@
 </head>
 <body>
 
-<header class="banner"> <!--это баннер с лого-->
-  <div class="banner-left">
-    <img src="../static/images/Logo(SD).png" class="logo-corner" />
-    <h1 class="shop-name">StarDrop</h1>
-  </div>
-  <div class="banner-right">
-    <a href="/cart"><img src="../static/images/cart.png" alt="Cart" class="icon" /></a>
-    <a href="/profile"><img src="../static/images/profile.png" alt="Profile" class="icon" /></a>
-  </div>
-</header>
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block content %}
 
-<nav class="navbar"> <!--это навигация по страничкам-->
-  <ul>
-    <li><a href="/">Главная</a></li>
-    <li><a href="family-games.html">Семейные игры</a></li>
-    <li><a href="strategy-games.html">Стратегии и евроигры</a></li>
-    <li><a href="rpg.html">Ролевые настольные игры</a></li>
-    <li><a href="accessories.html">Аксессуары</a></li>
-  </ul>
-</nav>
+<img src="{{ url_for('static', filename='images/Vector.png') }}" alt="Banner" class="center">
 
-<div class="image-strip"> <!-- ивенты и скидки-->
-  <img src="../static/images/event1.png" alt="Sale 1">
-  <img src="../static/images/sale2.png" alt="Sale 2">
-  <img src="../static/images/sale3.png" alt="Sale 3">
-  <img src="../static/images/sale4.png" alt="Sale 4">
-  <img src="../static/images/event1.png" alt="Sale 1">
-  <img src="../static/images/sale2.png" alt="Sale 2">
-  <img src="../static/images/sale3.png" alt="Sale 3">
-  <img src="../static/images/sale4.png" alt="Sale 4">
+
+
+<div class="event-strip-wrapper">
+  <div class="event-strip">
+    <img src="{{ url_for('static', filename='../static/images/Group 4.png') }}" alt="Event Strip">
+    <img src="{{ url_for('static', filename='../static/images/Group 4.png') }}" alt="Event Strip Duplicate">
+  </div>
 </div>
 
 <section class="special-offer"> <!-- спец предложения товар-->
@@ -126,3 +109,4 @@
   
 </body>
 </html>
+{% endblock %}

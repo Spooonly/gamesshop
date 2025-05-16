@@ -1,13 +1,16 @@
-<h2>Вход</h2>
-<form method="post">
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="profile-container">
+  <h2>Log In</h2>
+  <form method="post">
     {{ form.hidden_tag() }}
-
     {{ form.username.label }} {{ form.username() }}<br>
     {{ form.password.label }} {{ form.password() }}<br>
     {{ form.remember_me() }} {{ form.remember_me.label }}<br>
     {{ form.submit() }}
-
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
-</form>
+  </form>
+  <a href="/register"><button>Or Sign Up</button></a>
+</div>
+  
+{% endblock %}

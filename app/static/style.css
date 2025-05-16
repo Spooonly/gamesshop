@@ -1,8 +1,8 @@
 body { /* основы всего сайта, шрифт, цвет*/
   font-family: 'Rubik', sans-serif;
-  background: #fdfbef;
+  background: #ffffff;
   overflow-x: hidden;
-  color: #687F53;
+  color: #112250;
   margin: 0;
   padding: 0;
 }
@@ -14,7 +14,7 @@ h1{ /*это чтобы весь текст по центру был*/
 
 /*тут описание баннера*/
 header {
-  background-color: #FEF9DC;
+  background-color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,7 +60,7 @@ header {
 
 /*навишация между страничек*/
 .navbar {
-  background-color: #687F53;
+  background-color: #2B406E;
   padding: 10px 0;
 }
 
@@ -86,38 +86,56 @@ header {
 }
 /*гиперсылка когда курсор на ней*/
 .navbar a:hover {
-  color: #FEF9DC;
-  background-color: #5b7047;
+  color: #ffffff;
+  background-color: #192a4d;
 }
 
-/*ивенты и скидки*/
-.image-strip {
-  display: flex;
-  overflow-x: auto;
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.event-strip-wrapper {
+  overflow: hidden;
   width: 100%;
-  padding: 20px;
-  gap: 20px;
-  background-color: #fff8e6;
+  background-color: #fff;
+  border-top: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
 }
-/*это картинки о ивентах*/
-.image-strip img {
-  flex: 0 0 auto;
-  width: 400px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+.event-strip {
+  display: flex;
+  width: max-content;
+  animation: scroll-strip 20s linear infinite;
 }
+
+.event-strip img {
+  height: 300px;
+  width: auto;
+}
+  
+@keyframes scroll-strip {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-10%);
+  }
+}
+
 
 /*спец предложения*/
 .special-offer {
   padding: 30px;
-  background-color: #fff8e6;
+  background-color: #ffffff;
   text-align: center;
 }
 /*текст спец предложения*/
 .special-offer h2 {
   font-size: 2rem;
-  color: #465835;
+  color: #112250;
   margin: 0;
 }
 
@@ -132,7 +150,7 @@ header {
 
 /*карточки товара контейнер*/
 .product-card {
-  background-color: #FEF9DC;
+  background-color: #D9D9D9;
   border-radius: 10px;
   width: 250px;
   padding: 20px;
@@ -156,17 +174,17 @@ header {
 .product-card h3 {
   font-size: 1.3rem;
   margin: 15px 0 10px;
-  color: #687F53;
+  color: #112250;
 }
 /*рписание и цена*/
 .product-card p {
   font-size: 1.1rem;
   margin: 5px 0 15px;
-  color: #687F53;
+  color: #112250;
 }
 /*кнопка купить*/
 .product-card button {
-  background-color: #687F53;
+  background-color: #2B406E;
   color: #fff8e6;
   border: none;
   padding: 10px 20px;
@@ -192,19 +210,18 @@ header {
 
 /* это топ товары мне было лень менять название класса */
 .new-arrivals {
-  padding: 40px;
   text-align: center;
-  background-color: #fff8e6;
+  background-color: #2B406E;
 }
 /*текст топ товаров*/
 .new-arrivals h2 {
   font-size: 2rem;
-  color: #465835;
+  color: #ccc;
 }
 
 /*футер*/
 .footer {
-  background-color: #687F53;
+  background-color: #112250;
   color: #fff8e6;
   text-align: center;
   padding: 20px;
@@ -221,33 +238,6 @@ header {
   color: white;
 }
 
-/*движение картинок ивентов по странице*/
-.image-strip {
-  display: flex;
-  width: 200%;
-  animation: scroll 20s linear infinite;
-  overflow: hidden;
-  gap: 20px;
-  padding: 20px;
-  background-color: #fff8e6;
-}
-/*скорость движения*/
-@keyframes scroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%); 
-  }
-}
-
-/*контейнер картинок*/
-.image-strip img {
-  width: 400px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
 
 /*КОРЗИНА*/
 
@@ -258,7 +248,7 @@ header {
 /*текст*/
 .cart-page h2 {
   font-size: 2rem;
-  color: #465835;
+  color: #192a4d;
   margin-bottom: 30px;
   text-align: center;
 }
@@ -270,7 +260,7 @@ header {
 }
 /*контенер для товара*/
 .cart-item {
-  background-color: #FEF9DC;
+  background-color: #D9D9D9;
   display: flex;
   align-items: center;
   padding: 15px;
@@ -342,7 +332,7 @@ header {
 }
 /*кнопка удалить*/
 .delete-button {
-  background-color: #5b7047; 
+  background-color: #112250; 
   color: white;
   border: none;
   padding: 8px 12px;
@@ -354,7 +344,7 @@ header {
 }
 /*курсор на кнопке*/
 .delete-button:hover {
-  background-color: #465835; 
+  background-color: #192a4d; 
 }
 
 
@@ -420,4 +410,47 @@ header {
 .profile-pic {
   object-fit: cover;
   margin-bottom: 20px;
+}
+
+/* Buttons */
+button,
+input[type="submit"] {
+  padding: 12px 24px;
+  background-color: #2B406E;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: #1e2f50;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #112250;
 }

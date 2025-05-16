@@ -1,11 +1,19 @@
-<h2>Регистрация</h2>
-<form method="post">
+<!-- register.html -->
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<div class="profile-container">
+    <h2>Зарегистрироваться</h2>
+  <form method="post">
     {{ form.hidden_tag() }}
-
     {{ form.username.label }} {{ form.username() }}<br>
     {{ form.mail.label }} {{ form.mail() }}<br>
     {{ form.phone.label }} {{ form.phone() }}<br>
     {{ form.password.label }} {{ form.password() }}<br>
     {{ form.repeat_password.label }} {{ form.repeat_password() }}<br>
     {{ form.create_acc() }}
-</form>
+  </form>
+  <a href="/login"><button>Или войдите в профиль</button></a>
+</div>
+
+{% endblock %}
